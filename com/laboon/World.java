@@ -115,19 +115,39 @@ public class World {
 	 */
 	
 	public String toString() {
-		String toReturn = "  ";
+		
+		//original method
+		
+//		String toReturn = "  ";
+//		for (int j= 0; j < _size; j++) {
+//			toReturn += String.valueOf(j % 10);
+//		}
+//		toReturn += "\n";
+//		for (int j = 0; j < _size; j++ ) {
+//			toReturn += String.valueOf(j % 10) + " ";
+//			for (int k = 0; k < _size; k++) {
+//				toReturn += (_world[j][k].getStateRep());
+//			}
+//			toReturn += "\n";
+//		}
+//		return toReturn;
+		
+		// Refactor with StringBuilder
+		StringBuilder toReturn = new StringBuilder();
+		toReturn.append("  ");
 		for (int j= 0; j < _size; j++) {
-			toReturn += String.valueOf(j % 10);
+			toReturn.append(String.valueOf(j % 10));
 		}
-		toReturn += "\n";
+		toReturn.append("\n");
 		for (int j = 0; j < _size; j++ ) {
-			toReturn += String.valueOf(j % 10) + " ";
+			toReturn.append(String.valueOf(j % 10) + " ");
 			for (int k = 0; k < _size; k++) {
-				toReturn += (_world[j][k].getStateRep());
+				toReturn.append(_world[j][k].getStateRep());
 			}
-			toReturn += "\n";
+			toReturn.append("\n");
 		}
-		return toReturn;
+		return toReturn.toString();
+		
 	}
 	
 	/**
